@@ -16,18 +16,22 @@ var users = [
     { id: 2, name: 'Quan Vu'}
 ]
 
+
+//Trang Home
 app.get('/', function(req, res) {
     res.render('index', {
         name: "Truong Tuan"
     })
 })
 
+//Get trang List Users
 app.get('/users', function(req, res) {
     res.render('users/index', {
         users: users
     })
 });
 
+// Search APi
 app.get('/users/search', function(req, res){
     var q = req.query.q.toLowerCase();
     var result = users.filter(function(user){
@@ -39,10 +43,12 @@ app.get('/users/search', function(req, res){
     })
 })
 
+// Trang create
 app.get('/users/create', function(req, res) {
     res.render('users/create');
 })
 
+// Api create User
 app.post('/users/create', function(req, res){
     users.push(req.body);
     res.redirect('/users');
