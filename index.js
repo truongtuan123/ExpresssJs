@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
+const shortid = require('shortid');
 
 const adapter = new FileSync('db.json');
 const db = low(adapter);
@@ -52,8 +53,19 @@ app.get('/users/create', function(req, res) {
 
 // Api create User
 app.post('/users/create', function(req, res){
+    req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('/users');
+})
+
+
+// Get User
+app.get('/users/:id', function(req, res){
+    var id = req.params.id;
+    var result = db.get('users').find({id: id}).value();
+    res.render('users/view', {
+        user: result
+    })
 })
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
