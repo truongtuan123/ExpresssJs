@@ -1,12 +1,15 @@
-h1 Users
+extends ../../layout/template
 
-a(href="/users/create/") Create New
-form(action="/users/search/", method="GET")
-    input(type="text", name = "q", value= query)
-    button Search
-ul
-    each user in users
-        li
-            span= user.name
-            span &nbsp;
-            a(href="/users/" + user.id) View
+block content
+    h1(class="ml-4") Users
+
+    a(href="/users/create/", class="ml-4") Create New
+    form(action="/users/search/", method="GET")
+        input(type="text", name = "q", value= query, class="ml-4")
+        button(class="ml-4") Search
+    ul
+        each user in users
+            li
+                span= user.name
+                span &nbsp;
+                a(href="/users/" + user.id) View
