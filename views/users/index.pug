@@ -1,15 +1,22 @@
 extends ../../layout/template
 
 block content
-    h1(class="ml-4") Users
+    span(class="ml-4 mr-4") Users
+    a.btn.btn-primary(href="/users/create/", class="ml-4") New
 
-    a(href="/users/create/", class="ml-4") Create New
-    form(action="/users/search/", method="GET")
-        input(type="text", name = "q", value= query, class="ml-4")
-        button(class="ml-4") Search
-    ul
+    .d-flex.align-items-center
+        
+        form.ml-auto(action="/users/search/", method="GET")
+            input(type="text", name = "q", value= query, class="ml-4")
+            button.btn.btn-primary(class="ml-4") Search
+    table.table
+        tr
+            th Name
+            th Phone
+            th Action
         each user in users
-            li
-                span= user.name
-                span &nbsp;
-                a(href="/users/" + user.id) View
+            tr
+                td= user.name
+                td= user.phone
+                td 
+                    a.btn.btn-light(href="/users/" + user.id) View

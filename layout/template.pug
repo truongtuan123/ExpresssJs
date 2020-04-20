@@ -2,4 +2,10 @@ html
     head
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
     body
-        block content
+        ul.nav
+            li.nav-item
+                a.nav-link.active(href='/') Home
+            li.nav-item
+                a.nav-link(href='/users') User
+        .container.pt-5
+            block content

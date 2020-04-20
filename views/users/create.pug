@@ -1,7 +1,16 @@
 extends ../../layout/template
 
 block content
-    h1(class="ml-4") Create User
+    h4 Create User
+    if errors 
+        each error in errors
+            .alert.alert-danger= error
     form(action='/users/create', method="POST")
-        input(type="text", name="name", class="ml-4")
-        button(class="ml-4") Create
+        .from-group
+            label Name
+            input.form-control(type="text", name="name" value= values ? values.name : "")
+        .from-group
+            label Phone
+            input.form-control(type="text", name="phone" value= values ? values.phone : "")
+
+        button.btn.btn-primary(class="mt-4") Create

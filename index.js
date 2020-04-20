@@ -10,6 +10,7 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 //Trang Home
 app.get('/', function(req, res) {
@@ -18,9 +19,9 @@ app.get('/', function(req, res) {
     })
 })
 
+// Page User
 app.use('/users', userRouter);
 
-//Get trang List Users
 
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
