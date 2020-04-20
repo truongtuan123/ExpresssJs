@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var userController = require('../controller/userController');
+var validate = require('../validate/userValidation');
 
 
 router.get('/', userController.index);
@@ -13,8 +14,7 @@ router.get('/search', userController.search);
 router.get('/create', userController.create);
 
 // Api create User
-router.post('/create', userController.postCreate);
-
+router.post('/create', validate.postCreate, userController.postCreate);
 
 // Get User
 router.get('/:id', userController.get);
