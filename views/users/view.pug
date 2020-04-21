@@ -1,8 +1,11 @@
 extends ../../layout/template
 
 block content
-    h1(class="ml-4") View User
-    p(class="ml-4")
-        label Name
-        span &nbsp;
-        span= user.name
+    h4(class="ml-4") View User
+    table.table
+        tr
+            th Name
+            th Phone
+        tr  
+            td= user.name
+            td= user.phone

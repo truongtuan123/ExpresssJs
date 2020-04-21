@@ -2,33 +2,15 @@
   "users": [
     {
       "id": "sBL916Qkb",
-      "name": "Quan Vũ"
+      "name": "Quan Vũ",
+      "email": "quanvu@gmail.com",
+      "password": "123"
     },
     {
       "id": "sBL916Qka",
-      "name": "Lữ Bố"
-    },
-    {
-      "name": "Điêu Thuyền",
-      "id": "sBL916Qkc"
-    },
-    {
-      "name": "Trương Phi",
-      "id": "jVwzCmij5"
-    },
-    {
-      "name": "Cam Ninh",
-      "id": "joz_0d0w-"
-    },
-    {
-      "name": "Đổng Trác",
-      "phone": "123123123123",
-      "id": "OLWIEcDYI"
-    },
-    {
-      "name": "Lỗ Túc",
-      "phone": "124567890",
-      "id": "gToiU5nD_"
+      "name": "Lữ Bố",
+      "email": "lubo@gmail.com",
+      "password": "123456"
     }
   ]
 }

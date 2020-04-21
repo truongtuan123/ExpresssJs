@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 var userRouter = require('./router/user.route');
+var authRouter = require('./router/auth.route');
 
 const port = 3000;
 app.set('views', './views');
@@ -21,6 +22,9 @@ app.get('/', function(req, res) {
 
 // Page User
 app.use('/users', userRouter);
+
+//Page login
+app.use('/auth', authRouter);
 
 
 
