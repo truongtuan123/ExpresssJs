@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -15,7 +17,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cookieParser('truongtuan'));
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(express.static('public'));
 
