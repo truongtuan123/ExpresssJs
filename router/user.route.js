@@ -5,6 +5,7 @@ var userController = require('../controller/userController');
 var validate = require('../validate/userValidation');
 
 
+
 router.get('/', userController.index);
 
 // Search APi

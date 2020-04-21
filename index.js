@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 
 var userRouter = require('./router/user.route');
 var authRouter = require('./router/auth.route');
+
+var authMiddleware = require('./middlewares/authentication');
 
 const port = 3000;
 app.set('views', './views');
@@ -11,6 +14,9 @@ app.set('view engine', 'pug');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser());
+
 app.use(express.static('public'));
 
 //Trang Home
@@ -21,7 +27,7 @@ app.get('/', function(req, res) {
 })
 
 // Page User
-app.use('/users', userRouter);
+app.use('/users', authMiddleware.authentication, userRouter);
 
 //Page login
 app.use('/auth', authRouter);
