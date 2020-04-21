@@ -1,0 +1,27 @@
+html
+    head
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    body
+        .container.pt-5
+            h4 Sign Up
+            if errors 
+                each error in errors
+                    .alert.alert-danger= error
+            form(method="POST")
+                .from-group
+                    label Name
+                    input.form-control(type="text", name="name" value= values ? values.name : "")
+                .from-group
+                    label Email
+                    input.form-control(type="email", name="email" value= values ? values.email : "")
+                .from-group
+                    label Phone
+                    input.form-control(type="text", name="phone" value= values ? values.phone : "")
+                .from-group
+                    label Password
+                    input.form-control(type="password", name="password")
+                .from-group
+                    label Confirm Password
+                    input.form-control(type="password", name="confirmPassword")
+
+                button.btn.btn-primary(class="mt-4") Sign Up
