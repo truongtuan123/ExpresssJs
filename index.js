@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser')
 
 var userRouter = require('./router/user.route');
 var authRouter = require('./router/auth.route');
+var productRouter = require('./router/product.route');
 
 var authMiddleware = require('./middlewares/authentication');
 
@@ -33,6 +34,9 @@ app.use('/users', authMiddleware.authentication, userRouter);
 
 //Page login
 app.use('/auth', authRouter);
+
+//Page product
+app.use('/product', productRouter);
 
 
 
