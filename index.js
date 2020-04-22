@@ -36,7 +36,7 @@ app.use('/users', authMiddleware.authentication, userRouter);
 app.use('/auth', authRouter);
 
 //Page product
-app.use('/product', productRouter);
+app.use('/products', authMiddleware.authentication, productRouter);
 
 
 
