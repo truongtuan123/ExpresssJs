@@ -3,7 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/Express-demo');
 
 var userRouter = require('./router/user.route');
 var authRouter = require('./router/auth.route');
