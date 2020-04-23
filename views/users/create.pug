@@ -5,12 +5,15 @@ block content
     if errors 
         each error in errors
             .alert.alert-danger= error
-    form(action='/users/create', method="POST")
+    form(action='/users/create', method="POST", enctype="multipart/form-data")
         .from-group
             label Name
             input.form-control(type="text", name="name" value= values ? values.name : "")
         .from-group
             label Phone
             input.form-control(type="text", name="phone" value= values ? values.phone : "")
+        .from-group
+            label Avatar
+            input.form-control-file(type="file", name="avatar")
 
         button.btn.btn-primary(class="mt-4") Create
