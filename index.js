@@ -8,8 +8,10 @@ var cookieParser = require('cookie-parser')
 var userRouter = require('./router/user.route');
 var authRouter = require('./router/auth.route');
 var productRouter = require('./router/product.route');
+var cartRouter = require('./router/cart.route');
 
 var authMiddleware = require('./middlewares/authentication');
+var sessionMiddleware = require('./middlewares/session');
 
 const port = 3000;
 app.set('views', './views');
@@ -21,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(express.static('public'));
+app.use(sessionMiddleware);
 
 //Trang Home
 app.get('/', function(req, res) {
@@ -37,6 +40,8 @@ app.use('/auth', authRouter);
 
 //Page product
 app.use('/products', authMiddleware.authentication, productRouter);
+
+app.use('/cart', cartRouter);
 
 
 
